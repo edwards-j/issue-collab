@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import NoResultsMessage from '../statuses/NoResultsMessage';
+import marked from 'marked';
 
 const SearchResults = ({ results }) => {
   const formattedResults =
@@ -29,6 +30,7 @@ const SearchResults = ({ results }) => {
           </span>
         );
       });
+      console.log('bodyText:', bodyText);
 
       return (
         <div className="result" key={item.id}>
@@ -38,7 +40,7 @@ const SearchResults = ({ results }) => {
             {item.title}
           </a>
 
-          <p>{bodyText}</p>
+          {bodyText && <p dangerouslySetInnerHTML={marked(bodyText)} />}
 
           <div>{`${userName}/${repoName}`}</div>
           <div>{issueAge}</div>
