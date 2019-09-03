@@ -40,7 +40,7 @@ const SearchResults = ({ results }) => {
             {item.title}
           </a>
 
-          {bodyText && <p dangerouslySetInnerHTML={marked(bodyText)} />}
+          {bodyText && <div dangerouslySetInnerHTML={{ __html: marked(bodyText) }} />}
 
           <div>{`${userName}/${repoName}`}</div>
           <div>{issueAge}</div>
