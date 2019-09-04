@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
 import moment from 'moment';
 import NoResultsMessage from '../statuses/NoResultsMessage';
@@ -33,19 +34,30 @@ const SearchResults = ({ results }) => {
       console.log('bodyText:', bodyText);
 
       return (
-        <div className="result" key={item.id}>
-          <img src={item.user.avatar_url} width="50px" alt="avatar" />
+        <div className="result-wrapper" key={item.id}>
+          <div className="result-header">
+            <img src={item.user.avatar_url} alt="avatar" />
 
-          <a href={item.html_url} target="_blank" rel="noopener noreferrer">
-            {item.title}
-          </a>
+            <a
+              href={item.html_url}
+              className="issue-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {item.title}
+            </a>
+          </div>
 
-          {bodyText && <div dangerouslySetInnerHTML={{ __html: marked(bodyText) }} />}
+          <div className="result-body">
+            {bodyText && <div dangerouslySetInnerHTML={{ __html: marked(bodyText) }} />}
 
-          <div>{`${userName}/${repoName}`}</div>
-          <div>{issueAge}</div>
+            <div>{`${userName}/${repoName}`}</div>
+            <div>{issueAge}</div>
+          </div>
 
-          <p>{mappedLabels}</p>
+          <div className="result-footer">
+            <p>{mappedLabels}</p>
+          </div>
 
           <br />
           <br />
