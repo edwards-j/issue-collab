@@ -49,18 +49,16 @@ const SearchResults = ({ results }) => {
           </div>
 
           <div className="result-body">
-            {bodyText && <div dangerouslySetInnerHTML={{ __html: marked(bodyText) }} />}
+            {/* {bodyText && <div dangerouslySetInnerHTML={{ __html: marked(bodyText) }} />} */}
+            <div className="body-text">{bodyText}</div>
 
             <div>{`${userName}/${repoName}`}</div>
             <div>{issueAge}</div>
           </div>
 
           <div className="result-footer">
-            <p>{mappedLabels}</p>
+            <div>{mappedLabels}</div>
           </div>
-
-          <br />
-          <br />
         </div>
       );
     });

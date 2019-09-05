@@ -142,6 +142,10 @@ body {
   }
 
   .result-wrapper {
+    margin-bottom: 40px;
+    border: 2px solid black;
+    padding: 2px;
+
     .result-header {
       img {
         width: 30px;
@@ -157,7 +161,16 @@ body {
     }
 
     .result-body {
-      height: 100px;
+      max-height: 120px;
+      margin-top: 5px;
+
+      .body-text {
+        margin-bottom: 5px;
+      }
+    }
+
+    .result-footer {
+      margin-top: 5px;
     }
 
   }
