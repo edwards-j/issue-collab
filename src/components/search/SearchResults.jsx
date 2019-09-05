@@ -36,7 +36,13 @@ const SearchResults = ({ results }) => {
       return (
         <div className="result-wrapper" key={item.id}>
           <div className="result-header">
-            <img src={item.user.avatar_url} alt="avatar" />
+            <img className="avatar" src={item.user.avatar_url} alt="avatar" />
+            <div className="author">{`${userName}/${repoName}`}</div>
+            <div className="age">{issueAge}</div>
+          </div>
+
+          <div className="result-body">
+            {/* {bodyText && <div dangerouslySetInnerHTML={{ __html: marked(bodyText) }} />} */}
 
             <a
               href={item.html_url}
@@ -46,14 +52,8 @@ const SearchResults = ({ results }) => {
             >
               {item.title}
             </a>
-          </div>
 
-          <div className="result-body">
-            {/* {bodyText && <div dangerouslySetInnerHTML={{ __html: marked(bodyText) }} />} */}
             <div className="body-text">{bodyText}</div>
-
-            <div>{`${userName}/${repoName}`}</div>
-            <div>{issueAge}</div>
           </div>
 
           <div className="result-footer">
